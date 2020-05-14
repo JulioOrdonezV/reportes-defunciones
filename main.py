@@ -21,12 +21,14 @@ def load_data():
             citas.append(line[2:14])
 
     for numero_cita in citas:
+        #it only pulls CR citizens--solo ciudadanos costarricenses
         data = {"identificacion": numero_cita, "tiponacionalidad": 0 }
         response_json = requests.get("https://www.consulta.tse.go.cr/appcdi/home/WSDefuncion", data=data).json()
         try:
             if response_json.get('personaDifunta').get('citaDefuncion'):
                     db.citas_defunciones_febrero.insert_one(response_json)
         except:
+            #if there are errors print the certificate number and response 
             print(data)
             print(response_json)
 

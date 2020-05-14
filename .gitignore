@@ -2,3 +2,4 @@ bulk.js
 .vscode/
 data/
 __pycache__/
+settings.py
