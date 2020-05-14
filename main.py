@@ -1,10 +1,11 @@
 import requests
+from settings import MONGO_USER, MONGO_PASSW
 from pymongo import MongoClient, DESCENDING, ASCENDING
 from pymongo.write_concern import WriteConcern
 from pymongo.errors import DuplicateKeyError, OperationFailure
 from pymongo.read_concern import ReadConcern
 
-MONGODB_URI = "mongodb+srv://usuario_citas_defunciones:libro_horse_blau_key@cluster0-zaajb.mongodb.net/test"
+MONGODB_URI = f"mongodb+srv://{MONGO_USER}:{MONGO_PASSW}@cluster0-zaajb.mongodb.net/test"
 
 db = MongoClient(
     MONGODB_URI,
